@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- single product -->
+	<div class="single-product mt-100 mb-100">
+		<div class="container">
+			<div class="row">
+<!--				<div class="col-md-5">-->
+<!--&lt;!&ndash;					<div class="single-product-img">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;						<img src="{{cat.image.url}}" height="300px" width="100%">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;					</div>&ndash;&gt;-->
+<!--				</div>-->
+				<div class="col-md-7">
+					<div class="single-product-content">
+						<h3>{{cat.name}}</h3>
+						<p>{{cat.description}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end single product -->
+
+<!-- more products -->
+	<div class="more-products mb-150">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2 text-center">
+					<div class="section-title">
+						<h3>Products</h3>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				{% for i in cat.products.all %}
+                <div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href="{% url 'shop:productInfo' i.id %}"><img src="{{i.image.url}}" height="300px"></a>
+						</div>
+						<h3>{{i.name}}</h3>
+						<p class="product-price">₹ {{i.price}} </p>
+						<a href="{% url 'shop:productInfo' i.id %}" class="cart-btn">View Details</a>
+					</div>
+				</div>
+                {% endfor %}
+			</div>
+		</div>
+	</div>
+	<!-- end more products -->
+
+
+{% endblock %}

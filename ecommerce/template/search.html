@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3 class="mt-5" style="text-align:center">Search Result</h3>
+
+{% if prod %}
+    <div class="row">
+				{% for i in prod %}
+                <div class="col-lg-4 col-md-6 text-center">
+					<div class="single-product-item">
+						<div class="product-image">
+							<a href=""><img src="{{i.image.url}}" height="300px"></a>
+						</div>
+						<h3>{{i.name}}</h3>
+						<p class="product-price">₹ {{i.price}} </p>
+						<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+					</div>
+				</div>
+                {% endfor %}
+			</div>
+
+    {% else %}
+    <h3 class="text-center">No result found</h3>
+    {% endif %}
+
+{% endblock %}

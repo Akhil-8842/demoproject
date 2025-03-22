@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container bg-dark p-4">
+    <h5 class="text-light">Customer Name : {{user.username}}</h5>
+    <h3 class="text-light text-center mb-4 mt-3">MY ORDERS</h3>
+    {% for i in orders %}
+    <div class="container bg-light mb-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-center">
+                        <img src="{{i.product.image.url}}" width="300" height="200">
+        <div class="text-center w-75">
+            <p>Product Name : <b>{{i.product.name}}</b></p>
+        <p>Price : <b>{{i.product.price}}</b></p>
+        <p>No. of items : <b>{{i.no_of_items}}</b></p>
+        <p>Order_id : <b>{{i.order_id}}</b></p>
+        <p>Ordered on : <b>{{i.order_date}}</b></p>
+        <p class="text-danger">Delivery Status : <b>{{i.delivery_status}}</b></p><br>
+        </div>
+                    </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
