@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container border border-2 border-light shadow mt-5 p-5 w-50">
+  <h3 class="text-center mt-3 "> School List</h3>
+    <ul>
+        {% for i in schools %}
+        <li>
+           <a  href="{% url 'schooldetail' i.id  %}" class="text-dark"> {{i.name}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+</div>
+{% endblock %}
